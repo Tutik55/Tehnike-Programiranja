@@ -33,3 +33,39 @@ int main(){
 }
 
 -----------------------------------------------------------
+ZADATAK 10:
+
+#include<iostream>
+#include<vector>
+#include<cmath>
+using namespace std;
+
+bool ProvjeraPotpunihKvadrata(vector<int>v){
+    for(int i=0;i<v.size();i++){
+        double korijen=static_cast<int>(sqrt(v[i]));
+        if(korijen*korijen==v[i]){
+            return true;
+        }
+    }
+    return false;
+}
+int main(){
+   int n;
+   cout<<"Unesi velicinu vektora: ";
+   cin>>n;
+   vector<int>v(n);
+   cout<<"Unesite elemente vektora: ";
+   for(int i=0;i<n;i++){
+       cin>>v[i];
+   }
+   if(ProvjeraPotpunihKvadrata(v)){
+       cout<<"U vektoru ima elemenata koji su potpuni kvadrati.";
+   }else{
+       cout<<"U vektoru nema elemenata koji su potpuni kvadrati.";
+   }
+    
+    return 0;
+}
+
+
+-----------------------------------------------------------------------------
