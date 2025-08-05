@@ -1,1 +1,35 @@
+------------------------------------------------------------
+ZADATAK 9:
 
+#include<iostream>
+#include<vector>
+using namespace std;
+
+bool ProvjeraParnosti(vector<int>v){
+    
+    for(int i=0;i<v.size();i++){
+        if(v[i]%2==0){
+            return true;
+        }
+    }
+    return false;
+}
+int main(){
+    int n;
+    cout<<"Unesi velicinu vektora: ";
+    cin>>n;
+    vector<int>v(n);
+    cout<<"Unesi elemente vektora: ";
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    if(ProvjeraParnosti(v)){
+        cout<<"U vektoru ima elemenata koji su parni.";
+    }else{
+        cout<<"U vektoru nema elemenata koji su parni.";
+    }
+    
+    return 0;
+}
+
+-----------------------------------------------------------
