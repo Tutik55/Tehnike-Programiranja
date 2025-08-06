@@ -104,3 +104,48 @@ int main(){
 }
 
 ----------------------------------------------------------------
+
+ZADATAK 13:
+
+#include<iostream>
+#include<vector>
+using namespace std;
+bool JeStepenDvojke(int broj){
+    if(broj<=0) return false;
+
+    while(broj>1){
+        if(broj%2!=0)
+            return false;
+        broj/=2;
+    }
+
+    return true;
+}
+bool ImaStepenDvojke(vector<int>v){
+    for(int broj:v){
+        if(JeStepenDvojke(broj))
+            return true;
+    }
+    return false;
+}
+int main(){
+    int n;
+    cout<<"Unesite broj elemenata: ";
+    cin>>n;
+    
+    vector<int> brojevi(n);
+    cout<<"Unesite "<<n<<" cijelih brojeva: ";
+    for(int i=0;i<n;i++){
+        cin>>brojevi[i];
+    }
+
+    if(ImaStepenDvojke(brojevi)){
+        cout<<"U vektoru postoji broj koji je stepen broja 2."<<endl;
+    }else{
+        cout<<"U vektoru ne postoji nijedan broj koji je stepen broja 2."<<endl;
+    }
+    
+    return 0;
+}
+
+-----------------------------------------------------------------------------------
