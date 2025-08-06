@@ -178,4 +178,31 @@ int main(){
     return 0;
 }
 ------------------------------------------------------------------------
+ZADATAK 15:
+#include <iostream>
+#include <vector>
+using namespace std;
+vector<int> StepeniDvojkeManjiOd(int n){
+    vector<int> stepeni;
+    int stepen=1;
+    while(stepen<n){
+        stepeni.push_back(stepen);
+        stepen*=2;
+    }
 
+    return stepeni;
+}
+
+int main(){
+    int n;
+    cout<<"Unesite prirodan broj: ";
+    cin>>n;
+    vector<int> rezultat=StepeniDvojkeManjiOd(n);
+    cout << "Stepeni dvojke manji od " << n << " su: ";
+    for(int i=0;i<rezultat.size();i++){
+        cout<<rezultat[i]<<" ";
+    }
+   
+    return 0;
+}
+----------------------------------------------------------
