@@ -235,3 +235,40 @@ int main(){
     return 0;
 }
 ---------------------------------------------------------------
+ZADATAK 18:
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+vector<int> NoviVektor(int niz[],int brEl){
+    vector<int>rez;
+    for(int i=0;i<brEl;i++){
+        if(niz[i]%2==0){
+            rez.push_back(niz[i]);
+        }
+    }
+    for(int i=0;i<brEl;i++){
+        if(niz[i]%2!=0){
+            rez.push_back(niz[i]);
+        }
+    }
+    return rez;
+}
+int main(){
+    int kapacitet,niz[100];
+    cout<<"Unesite kapacitet niza: ";
+    cin>>kapacitet;
+    cout<<"Unesite elemente niza: ";
+    for(int i=0;i<kapacitet;i++){
+        cin>>niz[i];
+    }
+    vector<int> r=NoviVektor(niz,kapacitet);
+    cout<<"Novi vektor: ";
+    for(int i=0;i<r.size();i++){
+        cout<<r[i]<<" ";
+    }
+    
+    
+    return 0;
+}
