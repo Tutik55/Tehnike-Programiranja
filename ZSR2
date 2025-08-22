@@ -316,3 +316,46 @@ int main(){
 }
 
 ----------------------------------------------------------
+ZADATAK 20:
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int SumaCifara(int n){
+    int suma=0;
+    while(n!=0){
+        int cifra=n%10;
+        suma+=cifra;
+        n/=10;
+    }
+    return suma;
+}
+vector<int> NoviVektor(vector<int> v){
+    vector<int>rez;
+   for(int i=0;i<v.size();i++){
+       rez.push_back(SumaCifara(v[i]));
+   }
+    return rez;
+}
+int main(){
+    int n;
+    cout<<"Unesi velicinu vektora: ";
+    cin>>n;
+    vector<int>v(n);
+    cout<<"Unesite elemente vektora: ";
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    
+    vector<int> r=NoviVektor(v);
+    cout<<"Novi vektor: ";
+    for(int i=0;i<r.size();i++){
+        cout<<r[i]<<" ";
+    }
+    
+    
+    return 0;
+}
+
+-----------------------------------------------------------
