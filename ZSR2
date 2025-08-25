@@ -571,3 +571,49 @@ int main(){
 }
 
 --------------------------------------------------------------
+ZADATAK 29:
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int SumaCifara(int broj){
+    int suma=0;
+    while(broj!=0){
+        int cifra=broj%10;
+        suma+=cifra;
+        broj/=10;
+    }
+    return suma;
+}
+vector<int> NoviVektor(vector<int> v,int broj){
+    vector<int>rezultat;
+    for(int i=0;i<v.size();i++){
+        if(SumaCifara(v[i])>broj){
+            rezultat.push_back(v[i]);
+        }
+    }
+    
+    return rezultat;
+}
+int main(){
+    int n;
+    cout<<"Unesi velicinu vektora: ";
+    cin>>n;
+    vector<int>v(n);
+    cout<<"Unesi elemente vektora: ";
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    int poredjenje;
+    cout<<"Unesi broj za poredjenje: ";
+    cin>>poredjenje;
+    vector<int>r=NoviVektor(v,poredjenje);
+    cout<<"Novi vektor glasi: "<<endl;
+    for(int i=0;i<r.size();i++){
+        cout<<r[i]<<" ";
+    }
+    
+    return 0;
+}
+
+------------------------------------------------
