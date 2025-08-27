@@ -1,1 +1,43 @@
+-----------------------------------------------
+ZADATAK 10:
 
+#include<iostream>
+#include<vector>
+using namespace std;
+bool Provjera(int n){
+    if(n<0){
+        throw domain_error("Negativan broj.");
+    }
+    for(int i=1;i*i*i<=n;i++){
+        if(i*i*i==n) return true;
+    }
+    return false;
+}
+vector<bool>VektorKubova(vector<int> v){
+    vector<bool> rez;
+    for(int i=0;i<v.size();i++){
+        rez.push_back(Provjera(v[i]));
+    }
+    
+    return rez;
+}
+int main(){
+    vector<int> brojevi={1,8,10,27,64,5,125,200,100,60};
+    try {
+        vector<bool> rezultat=VektorKubova(brojevi);
+        cout<<"Rezultat: ";
+        for(int i=0;i<rezultat.size();i++){
+            if(rezultat[i]){
+                cout<<"true ";
+            }else{
+                cout<<"false ";
+            }
+        }
+        cout<<endl;
+    }catch(const domain_error& e){
+        cout<<"Greska: "<<e.what()<<endl;
+    }
+    
+    return 0;
+}
+......................................................
