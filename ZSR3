@@ -85,6 +85,54 @@ int main(){
 
 
 -------------------------------------------------------------------------
+ZADATAK 13:
+#include <iostream>
+#include <vector>
+#include <stdexcept> 
+using namespace std;
+bool Tranzitivna(vector<vector<bool>>mat){
+    int n=mat.size();
+    if(n==0){
+        throw domain_error("Parametar nije kvadratna matrica.");
+    } 
+    for(int i=0;i<n;i++){
+        if(mat[i].size()!=n)
+            throw domain_error("Parametar nije kvadratna matrica.");
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            for(int k=0;k<n;k++){
+                if(mat[i][j] && mat[j][k] && !mat[i][k])
+                    return false;
+            }
+        }
+    }
+    return true;
+}
+
+int main() {
+    try {
+        vector<vector<bool>>m={
+            {true,true,true},
+            {false,true,true},
+            {false,false,true}
+        };
+        cout<<"Matrica ";
+        if(Tranzitivna(m)){
+            cout<<"jeste tranzitivna"<<endl;
+        }else{
+            cout<<"nije tranzitivna"<<endl;
+        }
+    }catch(domain_error &e){
+        cout<<"Izuzetak:"<< e.what()<<endl;
+    }
+
+    return 0;
+}
+
+
+
+-------------------------------------------------------------------------
 ZADATAK 45:
 
 #include<iostream>
