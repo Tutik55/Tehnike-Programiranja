@@ -110,4 +110,39 @@ int main(){
     return 0;
 }
 
---------------------------------------------------
+-----------------------------------------------------------------------------
+ZADATAK 48:
+#include <iostream>
+#include <string>
+using namespace std;
+string ZamijeniRazmake(string s,char sep){
+    string rezultat;
+    bool uRijeci=false; 
+    for(int i=0;i<s.length();i++){
+        if(s[i]!=' '){              
+            if(!uRijeci && !rezultat.empty()){
+                rezultat.push_back(sep);
+            }
+            rezultat.push_back(s[i]);
+            uRijeci=true;
+        }else{
+            uRijeci=false;
+        }
+    }
+    return rezultat;
+}
+
+int main(){
+    string recenica;
+    char znak;
+    cout<<"Unesi recenicu: ";
+    getline(cin, recenica);
+    cout<<"Unesi znak za razdvajanje: ";
+    cin>>znak;
+    string rezultat=ZamijeniRazmake(recenica,znak);
+    cout<<"Novi string: "<<rezultat<<endl;
+
+    return 0;
+}
+
+------------------------------------------------------------------------
